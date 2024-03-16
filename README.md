@@ -1,4 +1,4 @@
-#LAB 6
+# LAB 6
 # Despliega mi primera aplicación en Azure
 
 ## Mi primer despliegue en la nube
