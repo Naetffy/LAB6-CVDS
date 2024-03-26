@@ -24,46 +24,66 @@
        Ya con esto podremos ver el workflow y tambien puedes volver a re ejecutar todos los trabajos dando clic en el botón "Re-run all jobs", al final de esta operación tendrás el enlace de tu aplicación,        o puedes volver a Azure y dar clic en el botón "View app in browser" .
        ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/5cd9022f-a6a7-4f2a-b347-16df5499a4cf)
        ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/9fe69997-d709-4847-8677-c4cfaddb8619)
-
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/3961af94-0f59-4a0c-a173-8e9595e20b2d)
 
 # Parte II - Despliegue app web spring MVC (o spring-boot backend)
 1) Inicie [Azure Cloud Shell](https://docs.microsoft.com/en-in/azure/cloud-shell/overview) desde el portal. Para implementar en un grupo de recursos, ingrese el siguiente comando
 ```shell
 az group create --name MyResourceGroup --location westus
 ```
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/8050e915-c95f-44df-a744-74f25125d93b)
+
 2) Para crear un plan de servicio de aplicaciones (App service plan)
 ```shell
 az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku F1
 ```
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/4a25ba4f-48da-4419-b57a-281e3df9b5c4)
+
 3) Finalmente, cree el servidor MySQL con un nombre de servidor único.
 ```shell
 az mysql server create --resource-group MyResourceGroup --name mysqldbserver --admin-user mysqldbuser --admin-password P2ssw0rd@123 --sku-name Standard_B1ms
 ```
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/eacf3ce9-8c8a-465c-8377-7ddfaed10a73)
+
+
 > Importante: Introduzca un nombre de servidor SQL único. Dado que el nombre de Azure SQL Server no admite las convenciones de nomenclatura de mayúsculas y minúsculas UPPER / Camel , utilice minúsculas para el valor del campo Nombre del servidor de base de datos. 
 4) Navegue hasta el grupo de recursos que ha creado. Debería ver un servidor **Azure Database for MySQL server** aprovisionado. Seleccione el servidor de base de datos.
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/d23971fd-9635-495b-ab40-4872d45e5979)
 
-![image](https://github.com/PDSW-ECI/labs/assets/4140058/6eefacb6-31e5-47e3-b28d-4d1301c8d1e9)
+
 
 5) Seleccione **Properties**. Guarde el **Server name** y el **Server admin login name** en un bloc de notas.
+   
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/0e5b7430-fc21-4e57-b921-16c48f0a22a1)
 
-![image](https://github.com/PDSW-ECI/labs/assets/4140058/0a372f89-26da-4a44-ab5b-26e1238c3be8)
 
 > En este ejemplo, el nombre del servidor es myshuttle-1-mysqldbserver.mysql.database.azure.com y el nombre de usuario administrador es mysqldbuser@myshuttle-1-mysqldbserver.
 6) Seleccione **Connection security**. Habilite la opción **Allow access to Azure services** y guarde los cambios. Esto proporciona acceso a los servicios de Azure para todas las bases de datos de su servidor MySQL.
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/ecc0c4b6-e656-4053-acbd-4a87887a4391)
+
 
 ## Ejercicio 2: actualización de la configuración de la aplicación web
 A continuación, navegue hasta la aplicación web que ha creado. Mientras implementa una aplicación Java, debe cambiar el contenedor web de la aplicación web a Apache Tomcat.
+
+Primero tendremos que ir a App services, para crear una app web.
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/e15f1ff4-946b-4006-9ba4-13791936b8c0)
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/02cd9cf4-bc30-4df0-8cfc-b34fef02715e)
+
+
 1) Seleccione **Configuration**. Establezca **Stack settings** como se muestra en la imagen a continuación y haga clic en Guardar.
+Una vez en el anterior apartado, le damos a "GO TO RESOURCE"
+Seleccionamos Configuration y nos aseguramos de que este bien configurado.
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/5fec112f-b2c7-4c41-9688-cd9c13721fc9)
 
-![image](https://github.com/PDSW-ECI/labs/assets/4140058/2941dc04-5d50-4a71-a0ae-3e005397ab8f)
 
-2) Seleccione Overview y click en Browse.
+3) Seleccione Overview y click en Browse.
 
-![image](https://github.com/PDSW-ECI/labs/assets/4140058/23e96cc7-473c-4457-aa2c-acce5c7b23ee)
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/f22a2f7f-fb73-485e-9001-f6522ff1d899)
 
-3) La página web se verá como la imagen de abajo.
+4) La página web se verá como la imagen de abajo.
+5) 
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/468961ee-5898-44ea-b555-21366ab16764)
 
-![image](https://github.com/PDSW-ECI/labs/assets/4140058/87db1d63-7179-4ce8-a013-a6a1c06056d8)
 
 A continuación, debe actualizar las cadenas de conexión para que la aplicación web se conecte correctamente a la base de datos. Hay varias formas de hacerlo, pero para los fines de esta práctica de laboratorio, adoptará un enfoque simple actualizándolo directamente en Azure Portal.
 
@@ -91,6 +111,10 @@ Ahora ha instalado y configurado todos los recursos necesarios para implementar 
 
 ## Ejercicio 3: implementar los cambios en la aplicación web
 1) Conectate con un cliente FTP y sube el jar de la aplicación Java https://github.com/PDSW-ECI/spring-mvc-with-bootstrap
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/8093b26b-1cb1-4b35-b9b0-f4a3ec5ca2d5)
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/04861f0e-31ad-4c1a-9a60-ef7cd2375310)
+![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/45668029-201a-475f-86f5-56b2be652f12)
+
 
 ## Entrega
 - El enlace de la aplicación React y Spring MVC desplegada en Azure
