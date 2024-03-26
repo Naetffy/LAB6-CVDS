@@ -7,7 +7,24 @@
 
 1) Busca Azure for Students en tu buscador de preferencias e ingresa con el correo institucional.
 2) Crea un budget de 1 dólar para la cuenta
+    a. Una vez creada la cuenta.
+     ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/9963c85c-c13e-42b8-9b78-3ed83ec4eb79)
+    b. Escribimos budget, luego de entrar al apartado de budget le damos a add y seguimos los pasos para crear un budget.
+     ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/97965319-a81a-4672-8032-bfc95307c460)
 3) El profesor guía el resto de pasos
+    a. Ahora entramos a static web app, y seguido a eso seguimos los pasos para crearlo.
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/74936400-63cd-47d3-bbe8-a6f58b1b1f00)
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/e6a30323-3df9-4157-8442-a40bbc78b43b)
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/475c1c62-4d47-402a-9e4f-291437542894)
+       Ya en este punto le damos a resource
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/26ff3a11-2fef-479d-a527-719521b942c2)
+   b. Ahora iremos al repositorio de github,
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/24deb3c2-9edc-4807-ab30-aefa5011ec91)
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/d73fbf76-1e16-43cb-9b74-c73e5007346d)
+       Ya con esto podremos ver el workflow y tambien puedes volver a re ejecutar todos los trabajos dando clic en el botón "Re-run all jobs", al final de esta operación tendrás el enlace de tu aplicación,        o puedes volver a Azure y dar clic en el botón "View app in browser" .
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/5cd9022f-a6a7-4f2a-b347-16df5499a4cf)
+       ![image](https://github.com/Naetffy/LAB6-CVDS/assets/112002572/9fe69997-d709-4847-8677-c4cfaddb8619)
+
 
 # Parte II - Despliegue app web spring MVC (o spring-boot backend)
 1) Inicie [Azure Cloud Shell](https://docs.microsoft.com/en-in/azure/cloud-shell/overview) desde el portal. Para implementar en un grupo de recursos, ingrese el siguiente comando
